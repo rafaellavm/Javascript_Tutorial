@@ -1,0 +1,37 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
+  <title>HTML DOM previousElementSibling Property</title>
+  <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+  <p>
+    <ul id="lista">
+      <li id="primeiroItemDaLista">Item 1</li>
+      <li id="segundoItemDaLista">Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+  </p>
+</body>
+
+<script src="js/javascript_dom_elements.js"></script>
+
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    console.clear();
+
+
+    var liAnterior = document.getElementById("segundoItemDaLista").previousElementSibling.innerHTML;
+    console.log(liAnterior); //"Item 1"
+
+
+  });
+</script>

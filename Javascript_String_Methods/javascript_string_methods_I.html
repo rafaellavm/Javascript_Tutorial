@@ -1,0 +1,56 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
+  <title>Javascript String Methods I</title>
+  <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+  <!-- length -->
+  <p id="ParagrafoTamanhoDoTexto">
+    <label>Digite o texto: </label>
+    <input type="text" style="width: 300px;" />
+    <button id="btnTamanhoString">Tamanho da string</button><br /><br />
+    <span>O tamanho do texto é</span>
+  </p>
+  <hr />
+  <!-- Match() = Retorna todas as strings 'x' do texto -->
+  <p id="RetornarTodasStringsEspecíficas">
+    <label>Clique no botão para pesquisar todas as ocorrências das strings : </label>
+    <button id="btnRecorrenciaString">Recorrências da string</button> <br /><br />
+    <span><strong>The rAIN in SPAIN stays mAINly in the plAIN</strong></span> <br /><br />
+  </p>
+  <hr />
+  <!-- indexOf() - string.indexOf(searchvalue, start) -->
+  <p id="RetornarResultadoDoIndexOf">
+    <label style="font-size: 20px;"><strong>Bolsonaro é o ser mais desprezível do mundo.</strong></label> <br /><br />
+
+    <label>A partir do texto acima, digite a palavra dentro dele que deseja procurar: </label> <br /><br />
+    <input type="text" style="width: 300px;" onkeyup="LimparAlertaMensagem();" /><br /><br />
+
+    <label>Digite o número da posição do texto em que deseja procurar a palavra a partir dessa posição: </label>
+    <br /><br />
+    <input type="text" style="width: 30px;" maxlength="2" onkeydown="return ( event.ctrlKey || event.altKey 
+    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) || (95<event.keyCode && event.keyCode<106)
+    || (event.keyCode==8) || (event.keyCode==9) || (event.keyCode>34 && event.keyCode<40) 
+    || (event.keyCode==46) )" onkeyup="LimparAlertaMensagem();" />
+    <label for="lblTextoSomenteNumeros">(somente números)</label>
+    <br /><br />
+    <button id="btnResultadoDoIndexOf">Tamanho da string</button>
+    <br /><br />
+  </p>
+</body>
+<script src="js/javascript_string_methods.1.js"></script>
+
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    console.clear();
+
+    LimparAlertaMensagem();
+  });
+</script>

@@ -1,0 +1,39 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
+  <title>HTML DOM parentElement Property</title>
+  <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+  <p>
+    <ul id="lista">
+      <li id="primeiroItemDaLista">Item 1</li>
+      <li id="segundoItemDaLista">Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+  </p>
+</body>
+
+<script src="js/javascript_dom_elements.js"></script>
+
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    console.clear();
+
+
+    var ul = document.getElementById("primeiroItemDaLista").parentElement.nodeName;
+    console.log(ul); //ul
+
+    var elementoUL = document.getElementById("primeiroItemDaLista").parentElement;
+    console.log(elementoUL); //ul
+
+  });
+</script>
