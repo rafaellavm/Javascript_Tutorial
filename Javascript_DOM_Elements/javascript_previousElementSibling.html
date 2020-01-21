@@ -1,12 +1,10 @@
 <html lang="pt-br">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
   <title>HTML DOM previousElementSibling Property</title>
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="../js/jquery-3.4.1.min.js"></script>
 </head>
-
 <body>
 
   <p>
@@ -24,13 +22,14 @@
 </html>
 
 <script type="text/javascript">
+  
   $(document).ready(function () {
 
     console.clear();
 
-
     var liAnterior = document.getElementById("segundoItemDaLista").previousElementSibling.innerHTML;
-    console.log(liAnterior); //"Item 1"
+    console.log("Retorna o conteúdo do <li> anterior: "); //"Item 1"
+    console.log(liAnterior);
 
 
   });

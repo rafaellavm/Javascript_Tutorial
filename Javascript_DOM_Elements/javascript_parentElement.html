@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
   <title>HTML DOM parentElement Property</title>
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="../js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -30,10 +30,11 @@
 
 
     var ul = document.getElementById("primeiroItemDaLista").parentElement.nodeName;
-    console.log(ul); //ul
+    console.log("nome (tipo) do elemento: " + ul); 
 
     var elementoUL = document.getElementById("primeiroItemDaLista").parentElement;
-    console.log(elementoUL); //ul
+    console.log("todo o elemento: ");
+    console.log(elementoUL);
 
   });
 </script>
