@@ -1,0 +1,82 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
+    <title>Javascript Array functions</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <p> <h2>Javascript Array functions</h2></p>
+    <p>
+        <ul id="lista">
+            <li>Banana</li>
+            <li>Laranja</li>
+            <li>Maçã</li>
+            <li>Manga</li>
+        </ul>
+    </p>
+    <p><button id="btn_toString">Transformando array em strings (toString())</button> </p>
+    <p><label id="lbl_toString">Lista por extenso: </label> </p>
+    <p><button id="btn_Join">Adicionar elemento (*) entre os itens da lista(Join())</button> </p>
+    <p><label id="lbl_Join">Elemento (*) entre os itens da lista: </label></p>
+    <p><button id="btn_Push">Acrescentar a fruta "morango" à lista (push())</button> </p>
+    <p><label id="lbl_Push">Lista atualizada com a adição da fruta 'morango': </label></p>
+    <p><button id="btn_Shift">Retirar o primeiro elemento da lista (shift())</button> </p>
+    <p><label id="lbl_Shift">Lista atualizada a retirada do primeiro elemento: </label></p>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    var array = new Array();
+
+    $(document).ready(function () {
+
+        console.clear();
+        TransformarUlemArray();
+    });
+
+    function TransformarUlemArray() {
+        var lista = document.querySelector('ul#lista').children;
+        for (var i = 0; i <= lista.length - 1; i++) {
+            array.push(lista[i].textContent);
+        }
+        return array;
+    }
+
+    document.getElementById('btn_toString').addEventListener('click', TransformarListaEmString, false);
+    document.getElementById('btn_Join').addEventListener('click', AdicionarElementoEntreOsItensDaLista, false);
+    document.getElementById('btn_Push').addEventListener('click', AcrescentarElementoNaLista, false);
+    document.getElementById('btn_Shift').addEventListener('click', RetirarPrimeiroElementoDaLista, false);
+
+    function TransformarListaEmString() {
+        var lblToString = document.querySelector('label#lbl_toString');
+        lblToString.textContent = "";
+        lblToString.textContent = "Lista por extenso: " + array.toString();
+    }
+
+    function AdicionarElementoEntreOsItensDaLista() {
+        //TransformarUlemArray();
+        var lblJoin = document.querySelector('label#lbl_Join');
+        lblJoin.textContent = "";
+        lblJoin.textContent = "Elemento (*) entre os itens da lista: " + array.join(" * ");
+    }
+
+    function AcrescentarElementoNaLista() {
+        array.push("morango");
+        var lblPush = document.querySelector('label#lbl_Push');
+        lblPush.textContent = "";
+        lblPush.textContent = "Lista atualizada com a adição da fruta 'morango': " + array.toString();
+    }
+
+    function RetirarPrimeiroElementoDaLista() {
+        var lblShift = document.querySelector('label#lbl_Shift');
+        lblShift.textContent = "";
+        lblShift.textContent = "Lista atualizada a retirada do primeiro elemento: " + array.shift();
+    }
+
+</script>
