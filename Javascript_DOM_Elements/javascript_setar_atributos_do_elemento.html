@@ -1,0 +1,58 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
+  <title>HTML DOM Setar atributos do elemento</title>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+  <p>
+   <button>botão desabilitado</button>
+   <p>
+     <div id="divTestandoImagem">
+
+     </div>
+   </p>
+  </p>
+</body>
+
+<script src="js/javascript_dom_elements.js"></script>
+
+</html>
+
+<script type="text/javascript">
+  
+  $(document).ready(function () {
+
+    console.clear();
+
+    document.querySelector('button').setAttribute('disabled', 'disabled');
+
+    CriarElementoImagem(document.getElementById('divTestandoImagem')); 
+
+  });
+
+  function CriarElementoImagem(elementoPai){
+    
+    var elementoImagem = document.createElement("IMG");
+    elementoImagem.setAttribute("src", "../imagens/birds.jpg");
+    elementoImagem.setAttribute("alt", "Ah, o amor...");
+    elementoImagem.setAttribute("title", "Ah, o amor...");
+    elementoImagem.setAttribute("id", "imgCasalDePombos");
+
+    //colocando a imagem dentro da div 
+    document.getElementById('divTestandoImagem').appendChild(elementoImagem);
+
+    console.log(elementoImagem.tagName);
+  }
+
+  function AdicionarAtributo(elemento){
+    
+    if (elemento.tagName === "IMG")
+    {
+      
+    }  
+  }
+
+</script>
