@@ -1,19 +1,29 @@
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no" />
-  <title>HTML DOM Setar atributos do elemento</title>
+  <title>HTML DOM GET/SET atributos do elemento</title>
   <script src="../js/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
-
   <p>
-   <button>botão desabilitado</button>
-   <p>
-     <div id="divTestandoImagem">
+    <button>botão desabilitado</button>
+    <div id="divTestandoImagem"></div>
+  </p>
+  <p>
+    <input type="text" value="Escreva seu nome" />
+    <button>Veja o resultado</button> <label for="resultado"></label>
+    <br />
+    <label for="texto"></label>
+  </p>
+  <p>
+    <input type="text" value="Escreva seu nome" />
+    <button>Veja o resultado</button> <label for="resultado"></label>
+    <br /><br />
 
-     </div>
-   </p>
+
   </p>
 </body>
 
@@ -22,19 +32,50 @@
 </html>
 
 <script type="text/javascript">
-  
+var primeiroBotao;
+
   $(document).ready(function () {
 
     console.clear();
 
     document.querySelector('button').setAttribute('disabled', 'disabled');
-
-    CriarElementoImagem(document.getElementById('divTestandoImagem')); 
-
+    CriarElementoImagem(document.getElementById('divTestandoImagem'));
   });
 
-  function CriarElementoImagem(elementoPai){
+  /**
+    *nextElementSibling always returns an element. 
+    *nextSibling can return any kind of node.
+    **/
+  document.querySelectorAll('input')[0].nextSibling.nextElementSibling.addEventListener('click', function () {
     
+    /**
+     *Se eu escrever o meu nome no input, e for buscar o seu valor atual via JavaScript, repara no que obtenho:
+    *input.value = 'Rafaela';
+    *input.value;  // dá "Rafaela"
+    *input.getAttribute('value'); // dá "Escreve o teu nome"
+    *Ou seja o .getAttribute vai buscar a informação ao HTML que é estático, e não ao objeto do DOM que já mudou de valor.
+    **/
+
+    //var input1 = document.querySelector('input').value; //o que eu digitar
+    var input1 = document.querySelectorAll('input')[0]; 
+    var texto = document.querySelectorAll('input')[0].value; // "Rafaela"
+    document.querySelector('label[for="resultado"]').textContent = input1.getAttribute('value'); // "Escreva seu nome"
+    document.querySelector('label[for="texto"]').textContent = "O texto é " + input1.value;
+  });
+
+  document.querySelectorAll('input')[1].nextSibling.nextElementSibling.addEventListener('click', function () {
+  });
+
+  function CriarElementoImagem(elementoPai) {
+
+    /* O .setAttribute() possui problemas com compatibilidade com o IE até a versão 8.
+    Quanto a desempenho, segundo o teste no JSPerf, o acesso direto a propriedade é mais rapido. 
+    
+    Os elementos HTML têm atributos. Quando representamos esses em JavaScript obtemos objetos com propriedades.
+    
+    => .setAttribute muda no HTML, é mais lento e cego
+    => .prop muda diretamente no objeto do DOM, mais rápido */
+
     var elementoImagem = document.createElement("IMG");
     elementoImagem.setAttribute("src", "../imagens/birds.jpg");
     elementoImagem.setAttribute("alt", "Ah, o amor...");
@@ -47,12 +88,11 @@
     console.log(elementoImagem.tagName);
   }
 
-  function AdicionarAtributo(elemento){
-    
-    if (elemento.tagName === "IMG")
-    {
-      
-    }  
+  function AdicionarAtributo(elemento) {
+
+    if (elemento.tagName === "IMG") {
+
+    }
   }
 
 </script>
